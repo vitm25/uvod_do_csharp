@@ -26,6 +26,16 @@
                     continue;
                 }
 
+                pole[cislo-1] = hrac;
+                tahy ++;
+
+                if (Vyhral(pole, hrac));
+                {
+                    Console.WriteLine("Vyhral " + hrac + "!");
+                    break;
+
+
+                }
             }
         }
     }
