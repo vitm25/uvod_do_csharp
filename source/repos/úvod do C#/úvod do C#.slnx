@@ -2,5 +2,6 @@
   <Project Path="kamen nuzky papir/kamen-nuzky-papir.csproj" Id="0a101c91-d683-485c-9b6e-1bcfac80f68e" />
   <Project Path="papousek/papousek.csproj" Id="3852873b-4462-4e29-b140-e7cc461b5855" />
   <Project Path="piskvorky 3x3/piskvorky 3x3.csproj" Id="ec6d7b82-de5c-4653-a928-84efe38418b7" />
+  <Project Path="sibenice/sibenice.csproj" Id="1536c7c9-99fa-468d-bcbc-548cf38dfa94" />
   <Project Path="úvod do C#/úvod do C#.csproj" />
 </Solution>
