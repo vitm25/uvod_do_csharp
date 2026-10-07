@@ -1,4 +1,6 @@
-﻿namespace piskvorky_3x3
+﻿using System.Diagnostics;
+
+namespace piskvorky_3x3
 {
     internal class Program
     {
@@ -20,7 +22,7 @@
                 Console.Write("hraje " + hrac + ", zadej číslo políčka: ");
                 int cislo = Convert.ToInt32(Console.ReadLine());
 
-                if (cislo < 1 || cislo > 9 || pole[cislo - 1] == "X" || pole[cislo - 1] == "0");
+                if (cislo < 1 || cislo > 9 || pole[cislo - 1] == "X" || pole[cislo - 1] == "0")
                 {
                     Console.WriteLine("tam nejde hrát, zkus to znovu");
                     continue;
@@ -29,14 +31,32 @@
                 pole[cislo-1] = hrac;
                 tahy ++;
 
-                if (Vyhral(pole, hrac));
+                if (Vyhral(pole, hrac))
                 {
                     Console.WriteLine("Vyhral " + hrac + "!");
                     break;
-
-
                 }
+                if (tahy == 9)
+                {
+                    Console.WriteLine("Remíza!");
+                    break;
+                }
+
+                if (hrac == "X")
+                {
+                    hrac = "O";
+                }
+                else
+                {
+                    hrac = "X";
+                }
+                
             }
+        }
+
+        static bool Vyhral(string[] p, string h)
+        {
+
         }
     }
 }
