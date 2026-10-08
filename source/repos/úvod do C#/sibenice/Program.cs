@@ -29,19 +29,46 @@
                 }
             }
 
+            int chyby = 0;
+            int maxChyb = 6;
+
             while (true)
             { 
                 Console.WriteLine("Slovo: " + string.Join (" ", uhodnuto));
+                Console.WriteLine("Chyby: " + chyby + "/" + maxChyb);
 
                 Console.Write("Zadej písmeno: ");
                 char pismeno = char.ToUpper(Console.ReadLine()[0]);
 
-                for (int i = 0; i < slovo.Length; i++)
+                if (slovo.Contains(pismeno))
                 {
-                    if (slovo[i] == pismeno)
+                    for (int i = 0; i < slovo.Length; i++)
                     {
-                        uhodnuto[i] = pismeno;
+                        if (slovo[i] == pismeno)
+                        {
+                            uhodnuto[i] = pismeno;
+                        }
                     }
+                    Console.WriteLine("Spravně :)");
+                }
+                else
+                {
+                    chyby++;
+                    Console.WriteLine("Špatně :(");
+                }
+
+                if (new string(uhodnuto) == slovo)
+                {
+                    Console.WriteLine("Vyhral jsi! Slovo bylo: " + slovo);
+
+                    break;        
+                }
+
+                if (chyby == maxChyb)
+                {
+                    Console.WriteLine("Prohrál jsi! Slovo bylo:" + slovo);
+                    
+                    break;
                 }
             }
         }
