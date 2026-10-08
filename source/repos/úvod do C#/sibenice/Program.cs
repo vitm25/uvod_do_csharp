@@ -31,6 +31,7 @@
 
             int chyby = 0;
             int maxChyb = 6;
+            string pouzite = "";
 
             while (true)
             {
@@ -38,8 +39,27 @@
                 Console.WriteLine("Slovo: " + string.Join (" ", uhodnuto));
                 Console.WriteLine("Chyby: " + chyby + "/" + maxChyb);
 
+                Console.WriteLine("Použitá písmena: " + pouzite);
                 Console.Write("Zadej písmeno: ");
-                char pismeno = char.ToUpper(Console.ReadLine()[0]);
+                string vstup = Console.ReadLine().ToUpper();
+
+                //kontrola, že je to jedno písmeno
+                if (vstup.Length != 1 || !char.IsLetter(vstup[0]))
+                {
+                    Console.WriteLine("Zadej jedno písmeno, zkus to znovu");
+                    continue;
+                }
+
+                char pismeno = vstup[0];
+
+                //kontrola, jestli už písmeno nebylo
+                if (pouzite.Contains(pismeno))
+                {
+                    Console.WriteLine("Tohle písmeno už jsi zkoušel");
+                    continue;
+                }
+
+                pouzite += pismeno + " ";
 
                 if (slovo.Contains(pismeno))
                 {
