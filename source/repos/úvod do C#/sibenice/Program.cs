@@ -33,7 +33,8 @@
             int maxChyb = 6;
 
             while (true)
-            { 
+            {
+                Obrazek(chyby);
                 Console.WriteLine("Slovo: " + string.Join (" ", uhodnuto));
                 Console.WriteLine("Chyby: " + chyby + "/" + maxChyb);
 
@@ -66,11 +67,37 @@
 
                 if (chyby == maxChyb)
                 {
+                    Obrazek(chyby);
                     Console.WriteLine("Prohrál jsi! Slovo bylo:" + slovo);
                     
                     break;
                 }
             }
+        }
+
+        static void Obrazek(int chyby)
+        {
+            string hlava = " ";
+            string telo = " ";
+            string levaRuka = " ";
+            string pravaRuka = " ";
+            string levaNoha = " ";
+            string pravaNoha = " ";
+
+            if (chyby >= 1) hlava = "O";
+            if (chyby >= 2) telo = "|";
+            if (chyby >= 3) levaRuka = "/";
+            if (chyby >= 4) pravaRuka = "\\";
+            if (chyby >= 5) levaNoha = "/";
+            if (chyby >= 6) pravaNoha = "\\";
+
+            Console.WriteLine("  +---+");
+            Console.WriteLine("  |   |");
+            Console.WriteLine("  " + hlava + "   |");
+            Console.WriteLine(" " + levaRuka + telo + pravaRuka + "  |");
+            Console.WriteLine(" " + levaNoha + " " + pravaNoha + "  |");
+            Console.WriteLine("      |");
+            Console.WriteLine("=========");
         }
     }
 }
