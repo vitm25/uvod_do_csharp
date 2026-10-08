@@ -7,7 +7,7 @@ namespace piskvorky_3x3
         static void Main(string[] args)
         {
             Console.WriteLine("Piškvorkyyyyyyyyyyyy");
-            string[] pole = { "0", "1", "2", "3", "4", "5", "6", "7", "8" };
+            string[] pole = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
             string hrac = "X";
             int tahy = 0;
 
@@ -15,7 +15,9 @@ namespace piskvorky_3x3
             {
                 //pole
                 Console.WriteLine(pole[0] + "|" + pole[1] + "|" + pole[2]);
+                Console.WriteLine("-----");
                 Console.WriteLine(pole[3] + "|" + pole[4] + "|" + pole[5]);
+                Console.WriteLine("-----");
                 Console.WriteLine(pole[6] + "|" + pole[7] + "|" + pole[8]);
 
                 //tah hrace
@@ -56,7 +58,15 @@ namespace piskvorky_3x3
 
         static bool Vyhral(string[] p, string h)
         {
-
+            if (p[0] == h && p[1] == h && p[2] == h) return true; // řádek
+            if (p[3] == h && p[4] == h && p[5] == h) return true;
+            if (p[6] == h && p[7] == h && p[8] == h) return true;
+            if (p[0] == h && p[3] == h && p[6] == h) return true; // sloupec
+            if (p[1] == h && p[4] == h && p[7] == h) return true;
+            if (p[2] == h && p[5] == h && p[8] == h) return true;
+            if (p[0] == h && p[4] == h && p[8] == h) return true; // diagonál
+            if (p[2] == h && p[4] == h && p[6] == h) return true;
+            return false;
         }
     }
 }
