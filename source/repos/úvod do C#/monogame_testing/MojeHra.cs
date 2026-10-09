@@ -9,6 +9,8 @@ namespace monogame_testing
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        Texture2D mojeTextura;
+
         public MojeHra()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -27,7 +29,16 @@ namespace monogame_testing
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            Texture2D mojeTextura = new Texture2D(GraphicsDevice, 50, 50);
+
+            Color[] pixely = new Color[50 * 50];
+
+            for (int i = 0; i < pixely.Length; i++)
+            {
+                pixely[i] = Color.Black;
+            }
+
+            mojeTextura.SetData(pixely);
         }
 
         protected override void Update(GameTime gameTime)
@@ -44,7 +55,9 @@ namespace monogame_testing
         {
             GraphicsDevice.Clear(Color.Red);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(mojeTextura, new Vector2(200f, 100f), Color.White);
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
