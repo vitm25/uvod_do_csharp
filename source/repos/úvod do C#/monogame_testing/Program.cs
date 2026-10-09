@@ -1,2 +1,10 @@
-﻿using var game = new monogame_testing.Game1();
-game.Run();
+﻿namespace monogame_testing
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new MojeHra().Run();
+        }
+    }
+}
