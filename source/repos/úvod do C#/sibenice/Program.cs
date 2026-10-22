@@ -13,10 +13,10 @@
             string slovo = "";
             while (slovo == "")
             {
-                slovo = slovicka[rnd.Next(slovicka.Length)];
+                slovo = slovicka[rnd.Next(slovicka.Length)].Trim();
             }
 
-            char[] uhodnuto = new char[slovicka.Length];
+            char[] uhodnuto = new char[slovo.Length];
             for (int i = 0; i < slovo.Length; i++)
             {
                 if (slovo[i] == ' ')
