@@ -1,4 +1,6 @@
-﻿namespace sibenice
+﻿using System.Runtime.CompilerServices;
+
+namespace sibenice
 {
     internal class Program
     {
@@ -30,7 +32,7 @@
             }
 
             int chyby = 0;
-            int maxChyb = 6;
+            int maxChyb = 10;
             string pouzite = "";
 
             while (true)
@@ -97,6 +99,10 @@
 
         static void Obrazek(int chyby)
         {
+            string kopec = " ";
+            string cara = " ";
+            string hornicara = " ";
+            string cara2 = " ";
             string hlava = " ";
             string telo = " ";
             string levaRuka = " ";
@@ -104,20 +110,26 @@
             string levaNoha = " ";
             string pravaNoha = " ";
 
-            if (chyby >= 1) hlava = "O";
-            if (chyby >= 2) telo = "|";
-            if (chyby >= 3) levaRuka = "/";
-            if (chyby >= 4) pravaRuka = "\\";
-            if (chyby >= 5) levaNoha = "/";
-            if (chyby >= 6) pravaNoha = "\\";
 
-            Console.WriteLine("  +---+");
-            Console.WriteLine("  |   |");
-            Console.WriteLine("  " + hlava + "   |");
-            Console.WriteLine(" " + levaRuka + telo + pravaRuka + "  |");
-            Console.WriteLine(" " + levaNoha + " " + pravaNoha + "  |");
-            Console.WriteLine("      |");
-            Console.WriteLine("=========");
+
+            if (chyby >= 1) kopec = "=======";
+            if (chyby >= 2) cara = "|";
+            if (chyby >= 3) hornicara = " +---+";
+            if (chyby >= 4) cara2 = "|";
+            if (chyby >= 5) hlava = "O";
+            if (chyby >= 6) telo = "|";
+            if (chyby >= 7) levaRuka = "/";
+            if (chyby >= 8) pravaRuka = "\\";
+            if (chyby >= 9) levaNoha = "/";
+            if (chyby >= 10) pravaNoha = "\\";
+
+            Console.WriteLine(" "+hornicara);
+            Console.WriteLine("  " + cara2 + "   " + cara);
+            Console.WriteLine("  " + hlava + "   "+ cara);
+            Console.WriteLine(" " + levaRuka + telo + pravaRuka + "  " + cara);
+            Console.WriteLine(" " + levaNoha + " " + pravaNoha + "  " + cara);
+            Console.WriteLine("      " + cara);
+            Console.WriteLine(kopec);
         }
     }
 }
