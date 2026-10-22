@@ -101,7 +101,7 @@ namespace monogame_testing
                 float pruhlednost = (float)g / trail.Count;
                 _spriteBatch.Draw(mojeTextura, trail[g], Color.Black * pruhlednost);
             }
-            _spriteBatch.Draw(mojeTextura, new Vector2(x, y), Color.IndianRed);
+            _spriteBatch.Draw(mojeTextura, new Vector2(x, y), Color.DarkRed);
             _spriteBatch.End();
             
             base.Draw(gameTime);
