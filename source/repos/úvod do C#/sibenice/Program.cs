@@ -110,8 +110,6 @@ namespace sibenice
             string levaNoha = " ";
             string pravaNoha = " ";
 
-
-
             if (chyby >= 1) kopec = "=======";
             if (chyby >= 2) cara = "|";
             if (chyby >= 3) hornicara = " +---+";
