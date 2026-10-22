@@ -18,6 +18,8 @@ namespace monogame_testing
         float x, y;
         float rychlost = 5;
 
+        
+
         List<Vector2> trail = new List<Vector2>();
 
         public MojeHra()
@@ -29,8 +31,6 @@ namespace monogame_testing
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -47,14 +47,7 @@ namespace monogame_testing
 
             for (int i = 0; i < pixely.Length; i++)
             {
-                pixely[i] = Color.Black;
-            }
-
-            mojeTextura.SetData(pixely);
-
-            for (int g = 0; g < pixely.Length; g++)
-            {
-                pixely[g] = Color.Black;
+                pixely[i] = Color.White;
             }
 
             mojeTextura.SetData(pixely);
@@ -94,6 +87,8 @@ namespace monogame_testing
             trail.Add(new Vector2(x, y));
             if (trail.Count > 15)
                 trail.RemoveAt(0);
+
+            base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
@@ -104,11 +99,11 @@ namespace monogame_testing
             for (int g = 0; g < trail.Count; g++)
             {
                 float pruhlednost = (float)g / trail.Count;
-                _spriteBatch.Draw(mojeTextura, trail[g], Color.White * pruhlednost);
+                _spriteBatch.Draw(mojeTextura, trail[g], Color.Black * pruhlednost);
             }
-            _spriteBatch.Draw(mojeTextura, new Vector2(x, y), Color.Red);
+            _spriteBatch.Draw(mojeTextura, new Vector2(x, y), Color.IndianRed);
             _spriteBatch.End();
-
+            
             base.Draw(gameTime);
         }
     }
