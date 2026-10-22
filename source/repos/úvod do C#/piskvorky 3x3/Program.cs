@@ -24,7 +24,7 @@ namespace piskvorky_3x3
                 Console.Write("hraje " + hrac + ", zadej číslo políčka: ");
                 int cislo = Convert.ToInt32(Console.ReadLine());
 
-                if (cislo < 1 || cislo > 9 || pole[cislo - 1] == "X" || pole[cislo - 1] == "0")
+                if (cislo < 1 || cislo > 9 || pole[cislo - 1] == "X" || pole[cislo - 1] == "O")
                 {
                     Console.WriteLine("tam nejde hrát, zkus to znovu");
                     continue;
