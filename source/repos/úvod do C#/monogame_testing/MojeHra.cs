@@ -16,7 +16,7 @@ namespace monogame_testing
         Texture2D mojeTextura;
 
         float x, y;
-        float rychlost = 3;
+        float rychlost = 5;
 
         List<Vector2> trail = new List<Vector2>();
 
@@ -54,7 +54,7 @@ namespace monogame_testing
 
             for (int g = 0; g < pixely.Length; g++)
             {
-                pixely[g] = Color.Red;
+                pixely[g] = Color.Black;
             }
 
             mojeTextura.SetData(pixely);
@@ -106,7 +106,7 @@ namespace monogame_testing
                 float pruhlednost = (float)g / trail.Count;
                 _spriteBatch.Draw(mojeTextura, trail[g], Color.White * pruhlednost);
             }
-            _spriteBatch.Draw(mojeTextura, new Vector2(x, y), Color.White);
+            _spriteBatch.Draw(mojeTextura, new Vector2(x, y), Color.Red);
             _spriteBatch.End();
 
             base.Draw(gameTime);
