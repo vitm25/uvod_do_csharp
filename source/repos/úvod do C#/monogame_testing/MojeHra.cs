@@ -64,6 +64,16 @@ namespace monogame_testing
 
             x += (rychlost * smer).X;
             y += (rychlost * smer).Y;
+            
+            if (x < 0) 
+                x = 0;
+            if (y < 0) 
+                y = 0;
+            if (x > GraphicsDevice.Viewport.Width - 50)
+                x = GraphicsDevice.Viewport.Width - 50;
+            if (y >  GraphicsDevice.Viewport.Height - 50)
+                y = GraphicsDevice.Viewport.Height - 50;
+
 
             trail.Add(new Vector2(x, y));
             if (trail.Count > 15)
