@@ -18,9 +18,9 @@ namespace monogame_testing
         float x, y;
         float rychlost = 5;
 
-        
-
         List<Vector2> trail = new List<Vector2>();
+
+        Klavesnice klavesnice = new Klavesnice();
 
         public MojeHra()
         {
@@ -55,31 +55,12 @@ namespace monogame_testing
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            klavesnice.Aktualizuj();
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || klavesnice.ChceUkoncit())
                 Exit();
 
-            Vector2 smer = new Vector2(0, 0);
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                smer += new Vector2(1, 0);
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
-                smer += new Vector2(-1, 0);
-            if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                smer += new Vector2(0, 1);
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                smer += new Vector2(0, -1);
-
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
-                smer += new Vector2(1, 0);
-            if (Keyboard.GetState().IsKeyDown(Keys.A))
-                smer += new Vector2(-1, 0);
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
-                smer += new Vector2(0, 1);
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
-                smer += new Vector2(0, -1);
-
-            if (smer != Vector2.Zero)
-                smer.Normalize();
+            Vector2 smer = klavesnice.Smer();
 
             x += (rychlost * smer).X;
             y += (rychlost * smer).Y;
